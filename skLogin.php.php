@@ -1,10 +1,9 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
- 
-class login extends CI_Controller{
+<?php 
+class skLogin extends CI_Controller{
 
 
      /***************************** setting start  *****************************/
+     /** class by sajjad kareem */
     //table users in database 
     private $table = 'users';
     //validation set
@@ -96,4 +95,4 @@ class login extends CI_Controller{
     }
 }
 
- ?>
+?>
