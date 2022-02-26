@@ -1,5 +1,11 @@
 <?php
-/* =========================== مثال عن طريقة الأستدعاء ======================================= */
+/* =========================== مثال عن طريقة الأستدعاء ======================================= 
+
+1-نستدعي مكتبة spreadshet من خلال     
+    composer require phpoffice/phpspreadsheet
+*/
+ 
+
 /* defined('BASEPATH') or exit('No direct script access allowed');
 require(APPPATH . 'libraries/skimportExcel.php');
 class importExcel extends CI_Controller
