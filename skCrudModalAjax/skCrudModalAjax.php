@@ -54,6 +54,12 @@ class skCrudModalAjax  extends CI_Controller
             "<a  class='btn btn-danger delete_btn' id=" .  $r->id . ">حذف</a>",
         );
     }
+
+
+
+
+
+    /* setting end *******************************************8 */
     public function index()
     {
         $this->load->view("dashbord_inc/header.php");

@@ -1,38 +1,5 @@
  /* for  edit data */
- function edit(edit_url, modal_id, edit_save_btn_id) {
- 	$(document).on('click', '.update_btn', function () {
- 		var id = $(this).attr("id");
- 		$.ajax({
- 			url: edit_url,
- 			method: "POST",
- 			data: {
- 				id: id
- 			},
- 			dataType: "json",
- 			cache: false,
- 			success: function (dataResult) {
 
- 				/* setting st art */
- 				$('#username_edit').val(dataResult[0].username);
- 				$('#password_edit').val(dataResult[0].password);
- 				$('#validity_edit').val(dataResult[0].validity);
- 				/* for select options edit */
- 				if (dataResult[0].validity == 1) {
- 					$('select option:contains("مستخدم عادي")').removeAttr('selected');
- 					$('select option:contains("مدير")').attr('selected', 'selected');
- 				} else {
- 					$('select option:contains("مدير")').removeAttr('selected');
- 					$('select option:contains("مستخدم عادي ")').attr('selected', 'selected');
- 				}
- 				$('#' + modal_id).modal('show');
- 				//   $('.modal-title').text("Edit User");  
- 				$('#' + edit_save_btn_id).val(id);
- 				/* setting end */
-
- 			}
- 		})
- 	});
- }
  /* for showing data   */
  function serverSide_datatable(url, table_id) {
  	$(document).ready(function () {
@@ -45,7 +12,7 @@
  			},
  			dom: 'Blfrtip',
  			buttons: [
- 				'excel', 'print'
+ 				// 'excel', 'print'
  			],
  			"language": {
  				"sProcessing": "جارٍ التحميل...",
@@ -218,3 +185,38 @@ confirmdelete:"هل أنت متأكد من الحذف"
 		}  
    });  
  }
+ /* for edit  */
+ function edit(edit_url, modal_id, edit_save_btn_id) {
+	$(document).on('click', '.update_btn', function () {
+		var id = $(this).attr("id");
+		$.ajax({
+			url: edit_url,
+			method: "POST",
+			data: {
+				id: id
+			},
+			dataType: "json",
+			cache: false,
+			success: function (dataResult) {
+
+				/* setting st art */
+				$('#username_edit').val(dataResult[0].username);
+				$('#password_edit').val(dataResult[0].password);
+				$('#validity_edit').val(dataResult[0].validity);
+				/* for select options edit */
+				if (dataResult[0].validity == 1) {
+					$('select option:contains("مستخدم عادي")').removeAttr('selected');
+					$('select option:contains("مدير")').attr('selected', 'selected');
+				} else {
+					$('select option:contains("مدير")').removeAttr('selected');
+					$('select option:contains("مستخدم عادي ")').attr('selected', 'selected');
+				}
+				$('#' + modal_id).modal('show');
+				//   $('.modal-title').text("Edit User");  
+				$('#' + edit_save_btn_id).val(id);
+				/* setting end */
+
+			}
+		})
+	});
+}
